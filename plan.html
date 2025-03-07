@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plan Page</title>
+    <style>
+        :root {
+            --primary-color: #1976d2;
+            --secondary-color: #dc004e;
+            --text-color: #333;
+            --background-color: #fff;
+            --light-gray: #f5f5f5;
+            --primary-light: #BBDEFB;
+            --primary-dark: #0D47A1;
+            --primary-contrastText: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: var(--primary-dark);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            color: var(--primary-contrastText);
+        }
+
+        header img.logo {
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            color: #fff;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            height: 40px;
+            width: 40px;
+        }
+
+        .navbar-logo svg {
+            height: 100%;
+            width: 100%;
+        }
+
+        .brand-link {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 0.5rem;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-menu li {
+            margin-left: 1rem;
+        }
+
+        .navbar-menu a {
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .plan-page-container {
+            padding: 20px;
+        }
+
+        .spinner {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .spinner .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-dark);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .plan-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .plan-card {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            width: 230px;
+            height: 290px;
+            border-radius: 8px;
+            margin: 15px;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .plan-card .dropdown {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--primary-contrastText);
+        }
+
+        .plan-card .plan-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-contrastText);
+        }
+
+        .plan-card .plan-type {
+            text-align: center;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            color: var(--primary-contrastText);
+            margin-bottom: 10px;
+        }
+
+        .plan-card .plan-info {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+            color: var(--primary-contrastText);
+            opacity: 0.9;
+            word-wrap: break-word;
+        }
+
+        .plan-card .schedule-btn {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: var(--primary-dark);
+            color: var(--primary-contrastText);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        .create-plan-placeholder {
+            margin-top: 20px;
+            text-align: center;
+            padding: 20px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <div class="navbar-logo">
+                    <img src="image.svg" alt="PlanIt Logo">
+                </div>
+                <a href="" class="brand-link">PLANIT</a>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="plan.html">Plans</a></li>
+                <li><a href="plangroup.html">Plans Groups</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="plan-page-container">
+        <div class="spinner" id="spinner">
+            <div class="loader"></div>
+        </div>
+        <div class="avatar">
+            <img src="image.svg" alt="PlanIt Logo">
+        </div>
+        <h1>Plans</h1>
+    </div>
+
+    <div class="plan-cards-container">
+
+        <div class="plan-card" id="plan1">
+            <div class="dropdown">⋮</div>
+            <div class="plan-name">Plan A</div>
+            <div class="plan-type">Type A</div>
+            <div class="plan-info">This is some information about Plan A.</div>
+            <button class="schedule-btn" onclick="alert('Schedule Plan A')">Schedule</button>
+        </div>
+
+        <div class="plan-card" id="plan2">
+            <div class="dropdown">⋮</div>
+            <div class="plan-name">Plan B</div>
+            <div class="plan-type">Type B</div>
+            <div class="plan-info">This is some information about Plan B.</div>
+            <button class="schedule-btn" onclick="alert('Schedule Plan B')">Schedule</button>
+        </div>
+
+        <div class="plan-card" id="plan3">
+            <div class="dropdown">⋮</div>
+            <div class="plan-name">Plan C</div>
+            <div class="plan-type">Type C</div>
+            <div class="plan-info">This is some detailed information about Plan C. More details can go here.</div>
+            <button class="schedule-btn" onclick="alert('Schedule Plan C')">Schedule</button>
+        </div>
+    </div>
+
+    <div class="create-plan-placeholder">
+        Create Plan Listen Placeholder
+    </div>
+    </div>
+</body>
+
+</html>
