@@ -1,0 +1,17 @@
+Design Decisions:
+
+The static HTML/CSS versions are created to mimic the original React/MUI components, providing a simplified and accessible representation of the interface without dynamic behavior.
+Placeholder content is used for data-driven components (like plan cards and grids), allowing designers and stakeholders to focus on layout and visual structure before dynamic features are integrated.
+Minimal JavaScript (e.g., simple alerts) is employed to simulate interactions, keeping the prototype lightweight while clearly indicating where future enhancements will occur.
+UI and Interaction Patterns:
+
+Consistency: Common UI elements like headers, cards, and buttons follow a unified style, ensuring that users experience a cohesive look and feel across pages.
+Feedback: Visual elements such as button hover effects and alert messages provide immediate feedback to user actions, indicating interactive elements even in a static context.
+Intuitive Navigation: The use of clearly labeled buttons (e.g., “Schedule,” “Save Changes”) and structured layouts (tables for grid data, flexbox containers for cards) guide users naturally through the page functions.
+Layout Choices Justification:
+
+Responsive Design: Flexbox and grid systems are used to ensure that the layout adapts to different screen sizes, with headers and content containers centering content for readability.
+Visual Hierarchy: The header (with logo and title) establishes brand identity at the top, while distinct sections (plan cards, group titles, and grids) are separated by spacing and contrasting background colors to prioritize content effectively.
+
+
+The Website is accessible at: https://lyakabynka.github.io
